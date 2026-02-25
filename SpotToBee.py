@@ -116,8 +116,12 @@ def convert_to_xml(csv_file, config):
     with open(csv_file, 'r', encoding='utf-8-sig') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            track_name = clean_track_name(row['Track Name'])
-            artist_name = row['Artist Name(s)']
+            track_name = clean_track_name(
+                row.get('Track Name') 
+                or row.get('Song') 
+                or row.get('Title')
+            )
+            artist_name = row.get('Artist Name') or row.get('Artist')
             condition = ET.SubElement(conditions, "Condition", Field="Title", Comparison="Contains", Value=track_name)
             and_condition = ET.SubElement(condition, "And", CombineMethod="All")
             artist_condition = ET.SubElement(and_condition, "Condition", Field="ArtistPeople", Comparison="Is", Value=artist_name)
