@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name='SpotToBee',
+    name='SpotToBee2',
     version='1.0.5',
     author='Brendan Stupik',
     author_email='spottobee@brendanstupik.anonaddy.com',
@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='MIT',
-    url='https://github.com/BrendanStupik/SpotToBee',
+    url='https://github.com/darkAutumn27/SpotToBee2',
     packages=find_packages(),
     install_requires=[
         'spotipy>=2.0.0',
